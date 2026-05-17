@@ -1127,7 +1127,7 @@ const guardar = async patch => { const data = {inv:rInv.current,ven:rVen.current
                     <div style={{fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:'uppercase',color:C.mu,marginBottom:10}}>Pagos a Empleados</div>
                     <div style={{overflowX:'auto'}}>
                       <table style={{width:'100%',borderCollapse:'collapse'}}>
-                        <thead><tr><TH ch="Fecha"/><TH ch="Empleado"/><TH ch="Cargo"/><TH ch="Periodo"/><TH ch="Monto"/></tr></thead>
+                      <thead><tr><TH ch="Fecha"/><TH ch="Empleado"/><TH ch="Cargo"/><TH ch="Periodo"/><TH ch="Monto"/><TH ch=""/></tr></thead>
                         <tbody>
                           {emp.slice(-15).reverse().map((e2,i)=>(
                             <tr key={i} style={{borderBottom:`1px solid ${C.bo}`}}>
@@ -1135,7 +1135,7 @@ const guardar = async patch => { const data = {inv:rInv.current,ven:rVen.current
                               <TD style={{fontWeight:600}} ch={e2.nombre}/>
                               <TD ch={<Chip col={C.bl} ch={e2.cargo}/>}/>
                               <TD style={{fontSize:12,color:C.mu}} ch={e2.periodo}/>
-                              <TD style={{color:C.bl,fontWeight:700}} ch={fm(e2.monto)}/>
+                             <TD style={{color:C.bl,fontWeight:700}} ch={fm(e2.monto)}/><TD ch={<Btn col={C.re} ch="🗑" onClick={()=>sEmp(emp.filter(x=>x.id!==e2.id))}/>}/>
                             </tr>
                           ))}
                           {!emp.length&&<tr><td colSpan={5} style={{textAlign:'center',padding:20,color:C.mu}}>Sin pagos</td></tr>}
